@@ -1,0 +1,45 @@
+# Take a look at the mako manpage with the command:
+#   man 5 mako
+# To view all configuration options.
+
+format=<b>%a ⏵</b> %s\n%b
+sort=-time
+output=DP-2
+layer=overlay
+anchor=top-right
+background-color=#2e344095
+width=300
+height=110
+margin=5
+padding=0,5,10
+border-size=0
+border-color=#FFFFFF
+border-radius=15
+icons=1
+actions=1
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+
+[urgency=normal]
+
+[urgency=high]
+default-timeout=0
+
+[urgency=critical]
+format=<b>%s</b>
+border-size=2
+border-color=#a9445f
+default-timeout=0
+
+[app-name=lightcord]
+border-color=#88c0d0
+
+[app-name=notify-send]
+format=%s\n%b
+
+[summary~="log-.*"]
+border-color=#a3be8c
+
+[app-name=lightcord summary~="(.*(^| )orz|ORZ|sto|STO|otl|OTL( |$).*)"]
+invisible=1
