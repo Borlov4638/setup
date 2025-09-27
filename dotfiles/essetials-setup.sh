@@ -7,6 +7,8 @@ packages=(
   "stow:stow"
   "tmux:tmux"
   "zsh:zsh"
+  "zoxide:zoxide"
+  "openssh:openssh"
   "kitty:kitty"
   "docker:docker"
   "docker-compose:docker-compose"
@@ -35,6 +37,7 @@ echo "[*] Установка nvim..."
 packages=(
   "nvim:nvim"
   "rg:ripgrep"
+  "fzf:fzf"
   "fd:fd"
   "luarocks:luarocks"
 )
@@ -49,8 +52,6 @@ for pkg in "${packages[@]}"; do
     echo "  -> "$cmd_name" уже установлен"
   fi
 done
-
-stow -t ~ nvim || true
 
 if [ ! -d "/usr/share/fonts/TTF" ]; then
   echo "  -> Ставим шрифты..."
@@ -74,6 +75,7 @@ cd "$DOTFILES_DIR"
 stow -t ~ zsh || true
 stow -t ~ tmux || true
 stow -t ~ kitty || true
+stow -t ~ nvim || true
 
 echo "[*] Готово! 🚀"
 echo "Открой tmux и нажми <prefix> + I для установки плагинов."
