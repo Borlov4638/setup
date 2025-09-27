@@ -8,6 +8,8 @@ packages=(
   "tmux:tmux"
   "zsh:zsh"
   "kitty:kitty"
+  "docker:docker"
+  "docker-compose:docker-compose"
 )
 
 for pkg in "${packages[@]}"; do
@@ -55,6 +57,14 @@ if [ ! -d "/usr/share/fonts/TTF" ]; then
   sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
 else
   echo "  -> Шрифты уже установлены"
+fi
+
+echo "[*] Установка nvm..."
+if ! command -v nvm &>/dev/null; then
+  echo "  -> ставим nvm..."
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash | nvm insall 22
+else
+  echo "  -> nvm уже установлен"
 fi
 
 echo "[*] Разворачивание dotfiles..."
