@@ -61,11 +61,21 @@ else
 fi
 
 echo "[*] Установка nvm..."
-if ! command -v nvm &>/dev/null; then
+if [ ! -d "$HOME/.nvm" ]; then
   echo "  -> ставим nvm..."
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash | nvm insall 22
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+fi
+
+# Подключаем nvm в текущий скрипт
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Теперь можно ставить Node.js
+if ! command -v node &>/dev/null; then
+  echo "  -> ставим Node.js 22..."
+  nvm install 22
 else
-  echo "  -> nvm уже установлен"
+  echo "  -> Node.js уже установлен"
 fi
 
 echo "[*] Разворачивание dotfiles..."
