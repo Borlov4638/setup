@@ -36,6 +36,7 @@ fi
 echo "[*] Установка nvim..."
 packages=(
   "nvim:nvim"
+  "lazygit:lazygit"
   "rg:ripgrep"
   "fzf:fzf"
   "fd:fd"
