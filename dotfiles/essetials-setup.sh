@@ -79,6 +79,12 @@ else
   echo "  -> Node.js уже установлен"
 fi
 
+echo "[*] Установка rust..."
+if ! command -v cargo &>/dev/null; then
+  echo "  -> ставим rust..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
 echo "[*] Разворачивание dotfiles..."
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DOTFILES_DIR"
