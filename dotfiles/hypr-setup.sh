@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-echo "[*] Установка зависимостей hyprland..."
+echo "[*] Installing hyprland dependencies..."
 
-# Массив пакетов для установки
 packages=(
   "hyprland:hyprland"
   "hyprpaper:hyprpaper"
@@ -19,14 +18,14 @@ for pkg in "${packages[@]}"; do
   IFS=':' read -r cmd_name pkg_name <<<"$pkg"
 
   if ! command -v "$cmd_name" &>/dev/null; then
-    echo "  -> $cmd_name не найден, ставим..."
+    echo "  -> $cmd_name not found, installing..."
     sudo pacman -S --noconfirm "$pkg_name"
   else
-    echo "  -> $cmd_name уже установлен"
+    echo "  -> $cmd_name already installed"
   fi
 done
 
-echo "[*] Разворачивание dotfiles..."
+echo "[*] Installing dotfiles..."
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DOTFILES_DIR"
 
