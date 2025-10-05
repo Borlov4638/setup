@@ -1,0 +1,23 @@
+# essentials packeges for any env 
+
+tmux
+zsh
+zoxide
+openssh
+kitty
+jq
+
+docker
+docker-compose
+
+nvim
+fzf
+fd
+ripgrep
+luarocks
+
+lazygit
+lazydocker
+
+ttf-jetbrains-mono-nerd
+

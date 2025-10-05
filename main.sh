@@ -1,59 +1,24 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-set -e
+art="
+██████╗ ██████╗  ██████╗ ███╗   ███╗███████╗███████╗███████╗██╗      █████╗ ███╗   ██╗██████╗ 
+██╔══██╗██╔══██╗██╔═══██╗████╗ ████║██╔════╝██╔════╝██╔════╝██║     ██╔══██╗████╗  ██║██╔══██╗
+██████╔╝██████╔╝██║   ██║██╔████╔██║█████╗  ███████╗█████╗  ██║     ███████║██╔██╗ ██║██║  ██║
+██╔═══╝ ██╔══██╗██║   ██║██║╚██╔╝██║██╔══╝  ╚════██║██╔══╝  ██║     ██╔══██║██║╚██╗██║██║  ██║
+██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║███████╗███████║███████╗███████╗██║  ██║██║ ╚████║██████╔╝
+╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ "
 
-MAIN_DIR="$(cd "$(dirname "$0")" && pwd)"
+echo -e "\n$art\n"
 
-show_help() {
-  echo "Usage: $0 [OPTIONS]"
-  echo ""
-  echo "Options:"
-  echo "  -a, --all        Install all"
-  echo "  -e, --essentials Install essetial dependencies"
-  echo "  -h, --hypr       Install Hyprland"
-  echo "  --help           Show help "
-}
+sudo pacman -Syu --noconfirm --needed git
 
-run_essentials() {
-  echo "Starting essentials installation"
-  "$MAIN_DIR/dotfiles/essetials-setup.sh"
-}
+# Use custom repo if specified, otherwise default
+SETUP_REPO="${SETUP_REPO:-Borlov4638/setup}"
 
-run_hypr() {
-  echo "Starting Hyprland installation..."
-  "$MAIN_DIR/dotfiles/hypr-setup.sh"
-}
+echo -e "\nClonning installaion repo from https://github.com/${ISTALLATION_REPO}.git"
+rm -rf ~/.local/share/setup
+git clone "https://github.com/${SETUP_REPO}.git" ~/.local/share/setup >/dev/null
 
-if [[ $# -eq 0 ]]; then
-  show_help
-  exit 0
-fi
+echo -e "\nInstallation Starting..."
 
-while [[ $# -gt 0 ]]; do
-  case $1 in
-  -a | --all)
-    run_essentials
-    run_hypr
-    shift
-    ;;
-  -e | --essentials)
-    run_essentials
-    shift
-    ;;
-  -h | --hypr)
-    run_hypr
-    shift
-    ;;
-  --help)
-    show_help
-    exit 0
-    ;;
-  *)
-    echo "Unknown argument: $1"
-    show_help
-    exit 1
-    ;;
-  esac
-done
-
-echo "Done"
+source ~/.local/share/setup/install.sh
