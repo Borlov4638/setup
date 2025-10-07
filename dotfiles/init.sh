@@ -1,9 +1,7 @@
 #!/bin/bash
 
 #enshure stow is installed
-if !command -v stow &>/dev/null; then
-  sudo pacman -S stow
-fi
+sudo pacman -S --noconfirm --needed stow
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
