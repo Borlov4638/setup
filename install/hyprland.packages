@@ -6,3 +6,17 @@ rofi-wayland
 mako
 blueman
 networkmanager
+
+slurp
+qt5-wayland
+
+evince
+libreoffice
+nautilus
+
+mpv
+playerctl
+wireplumber
+polkit-gnome
+power-profiles-daemon
+
