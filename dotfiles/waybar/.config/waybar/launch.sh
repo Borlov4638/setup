@@ -2,7 +2,7 @@
 
 killall waybar
 
-if [[USER = "karakul"]]; then
+if [[ $USER = "karakul" ]]; then
   waybar -c ~/.config/waybar/config.jsonc &
   -s ~/.config/waybar/style.css
 else

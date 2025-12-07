@@ -170,6 +170,16 @@
     "max-length": 50,
     "signal": 5
   },
+  "custom/v2ray": {
+    "format": "{}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "on-click": "$HOME/.config/waybar/custom-v2ray.sh",
+    "exec": "$HOME/.config/waybar/custom-v2ray-is-active.sh",
+    "max-length": 50,
+    "signal": 5
+  },
   "custom/media": {
     "format": "{icon} {text}",
     "return-type": "json",

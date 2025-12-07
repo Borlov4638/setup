@@ -20,8 +20,10 @@
   "modules-right": [
     "mpd",
     // "idle_inhibitor",
-    "network",
-    // "backlight",
+    "group/network-group",
+    // "custom/v2ray",
+    // "network",
+    "backlight",
     // "keyboard-state",
     // "hyprland/language",
     "group/hardware",
@@ -33,5 +35,9 @@
   "group/hardware": {
     "orientation": "horizontal",
     "modules": ["cpu", "memory", "temperature", "battery"],
+  },
+  "group/network-group": {
+    "orientation": "horizontal",
+    "modules": ["custom/v2ray", "network"],
   },
 }

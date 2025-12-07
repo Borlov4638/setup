@@ -1,4 +1,4 @@
-@import "../../.cache/wal/colors-waybar.css";
+@import "/home/karakul/.cache/wal/colors-waybar.css";
 
 * {
   font-family: "JetBrainsMono Nerd Font Propo";
@@ -36,7 +36,6 @@ tooltip {
 /* #cpu, */
 /* #temperature, */
 /* #battery, */
-#network,
 #custom-updates {
   /*text-shadow: 1px 1px 2px rgb(0, 0, 0);*/
   /* text shadow, offset-x | offset-y | blur-radius | color */
@@ -51,6 +50,19 @@ tooltip {
   border-radius: 18px; /*Default 5*/
   /* rounded corners */
   color: @foreground;
+}
+
+#network-group {
+  background: #15161e; /* Общий фон для всей группы */
+  margin: 2px 2px 2px 2px;
+  padding: 4px 10px; /* Внутренние отступы всей группы */
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.185);
+  border-radius: 18px;
+  color: @foreground;
+}
+
+#network-group > widget > * {
+  margin: 0 5px;
 }
 
 #battery.critical {
