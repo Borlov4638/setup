@@ -4,3 +4,5 @@ GOAL: do system setup blayzingly fast no hands involved
 
 NOTE:
 btw dont forget to add go
+
+todo add wal and colourschemes
